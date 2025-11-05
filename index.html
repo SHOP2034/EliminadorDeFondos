@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eliminador de Fondos</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Eliminador de Fondos</h1>
+    <p>Subí una imagen de un producto y quitá el fondo fácilmente.</p>
+
+    <input type="file" id="inputImage" accept="image/*">
+    <button id="removeBgBtn" disabled>Quitar fondo</button>
+
+    <div id="status">Cargando modelo...</div>
+    <div class="progress-container">
+      <div id="modelProgress" class="progress-bar"></div>
+    </div>
+
+    <div id="processContainer" style="display:none;">
+      <p>Procesando imagen...</p>
+      <div class="progress-container">
+        <div id="processProgress" class="progress-bar"></div>
+      </div>
+    </div>
+
+    <div class="preview">
+      <canvas id="canvas" width="400" height="400"></canvas>
+    </div>
+
+    <a id="downloadBtn" style="display:none" download="sin_fondo.png">Descargar resultado</a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
