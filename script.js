@@ -72,7 +72,7 @@ async function loadModel() {
 
     if (!buffer) {
       console.log("Descargando modelo desde el servidor...");
-      const modelUrl = "model/u2net.onnx"; // ruta local a tu archivo subido
+      const modelUrl = "Model/u2net.onnx"; // ruta local a tu archivo subido
       buffer = await fetchModelWithProgress(modelUrl);
       await saveToIndexedDB(buffer);
       console.log("Modelo guardado en IndexedDB");
