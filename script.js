@@ -72,7 +72,7 @@ async function loadModel() {
 
     if (!buffer) {
       console.log("Descargando modelo desde el servidor...");
-      const modelUrl = "Model/u2net.onnx"; // ruta local a tu archivo subido
+      const modelUrl = "https://raw.githubusercontent.com/shop2034/EliminadorDeFondos/main/Model/u2netp.onnx"; // ruta local a tu archivo subido
       buffer = await fetchModelWithProgress(modelUrl);
       await saveToIndexedDB(buffer);
       console.log("Modelo guardado en IndexedDB");
