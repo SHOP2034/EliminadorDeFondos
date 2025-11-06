@@ -1,65 +1,164 @@
+/* ======== Estilo general ======== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
 body {
-  font-family: sans-serif;
-  background: #f0f0f0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #dceafe 0%, #f9f9f9 100%);
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  color: #222;
 }
 
+/* ======== Contenedor principal ======== */
 .container {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  padding: 30px 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   text-align: center;
   width: 90%;
-  max-width: 500px;
+  max-width: 480px;
+  transition: all 0.3s ease;
 }
 
+.container:hover {
+  transform: translateY(-4px);
+}
+
+/* ======== Títulos ======== */
 h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
   margin-bottom: 10px;
+  color: #2b2b2b;
+  letter-spacing: 0.5px;
 }
 
-input, button, a {
-  margin-top: 15px;
-  display: inline-block;
+p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 5px;
 }
 
-button {
-  background: #4CAF50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
+/* ======== Entradas, botones y enlaces ======== */
+input[type="file"] {
+  display: block;
+  margin: 15px auto;
+  font-size: 0.9rem;
+  color: #333;
   cursor: pointer;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  border-radius: 8px;
   transition: 0.2s;
 }
 
-button:hover {
-  background: #45a049;
+input[type="file"]:hover {
+  background: #f2f6ff;
+  border-color: #4e8cff;
 }
 
+/* ======== Botón principal ======== */
+button {
+  background: linear-gradient(90deg, #4e8cff, #00b4d8);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0, 136, 255, 0.2);
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #00b4d8, #4e8cff);
+  box-shadow: 0 6px 16px rgba(0, 136, 255, 0.3);
+}
+
+/* ======== Enlace de descarga ======== */
+a#downloadLink {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #48c774, #36b37e);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.3s;
+  box-shadow: 0 3px 10px rgba(72, 199, 116, 0.25);
+}
+
+a#downloadLink:hover {
+  background: linear-gradient(90deg, #36b37e, #48c774);
+  transform: scale(1.05);
+}
+
+/* ======== Canvas ======== */
 canvas {
   margin-top: 15px;
   max-width: 100%;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
+/* ======== Progreso ======== */
 .progress-container {
   width: 100%;
-  background: #ddd;
+  background: rgba(200, 200, 200, 0.3);
   border-radius: 10px;
-  height: 10px;
+  height: 28px;
   overflow: hidden;
-  margin: 10px 0;
+  margin: 15px 0;
+  position: relative;
 }
 
 .progress-bar {
   height: 100%;
   width: 0%;
-  background: #4CAF50;
+  background: linear-gradient(90deg, #4e8cff, #00b4d8);
   transition: width 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 136, 255, 0.4);
+}
+
+/* ======== Mensaje de estado ======== */
+#status {
+  margin-top: 10px;
+  font-weight: 600;
+  color: #0077b6;
+  font-size: 0.95rem;
+}
+
+/* ======== Animaciones ======== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.container, canvas, button, input, a {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+/* ======== Adaptabilidad ======== */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  button {
+    width: 100%;
+  }
+  input[type="file"] {
+    width: 100%;
+  }
 }
