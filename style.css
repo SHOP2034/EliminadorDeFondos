@@ -1,225 +1,295 @@
-/* ======== Estilo general ======== */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+/* =====================================================
+✅ MODERN UI MOBILE – DISEÑO COMPACTO Y PROFESIONAL
+Estilo tipo app móvil (Android/iOS) con glassmorphism
+===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #dceafe 0%, #f9f9f9 100%);
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: linear-gradient(160deg, #5ab6ff, #eaf6ff);
   min-height: 100vh;
-  color: #222;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
-/* ======== Contenedor principal ======== */
-.container {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  padding: 30px 25px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+/* ===== HEADER ===== */
+.app-header {
+  width: 100%;
   text-align: center;
-  width: 90%;
-  max-width: 500px;
-  transition: all 0.3s ease;
+  margin-bottom: 12px;
 }
 
-.container:hover {
-  transform: translateY(-4px);
+.app-header h1 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
-/* ======== Títulos ======== */
-h1 {
-  font-size: 1.8rem;
+/* ===== CARDS (Glassmorphism) ===== */
+.card {
+  background: rgba(255,255,255,0.45);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 10px;
+  width: 100%;
+  max-width: 440px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.10);
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+.card h2 {
+  font-size: 1.15rem;
   font-weight: 600;
   margin-bottom: 10px;
-  color: #2b2b2b;
-  letter-spacing: 0.5px;
 }
 
-h3 {
-  font-size: 1.2rem;
-  margin: 15px 0 10px;
-  color: #2b2b2b;
-}
-
-p {
-  font-size: 0.95rem;
-  color: #555;
-  margin-top: 5px;
-}
-
-/* ======== Entradas, botones y enlaces ======== */
-input[type="file"] {
-  display: block;
-  margin: 15px auto;
-  font-size: 0.9rem;
-  color: #333;
-  cursor: pointer;
-  background: #fff;
-  border: 1px solid #ccc;
-  padding: 8px 12px;
-  border-radius: 8px;
-  transition: 0.2s;
-}
-
-input[type="file"]:hover {
-  background: #f2f6ff;
-  border-color: #4e8cff;
-}
-
-/* ======== Botones ======== */
-button {
-  background: linear-gradient(90deg, #4e8cff, #00b4d8);
-  color: white;
+/* ===== BOTONES ===== */
+.btn-primary, .btn-secondary, .btn-tool, .btn-danger, .btn-download {
   border: none;
-  padding: 12px 24px;
-  border-radius: 10px;
-  font-size: 1rem;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
-  margin-top: 10px;
-  transition: 0.3s ease;
-  box-shadow: 0 3px 10px rgba(0, 136, 255, 0.2);
+  transition: all 0.25s ease;
 }
 
-button:hover {
-  transform: scale(1.05);
-  background: linear-gradient(90deg, #00b4d8, #4e8cff);
-  box-shadow: 0 6px 16px rgba(0, 136, 255, 0.3);
+.btn-primary {
+  background: linear-gradient(135deg, #007bff, #00aaff);
+  color: #fff;
+  width: 100%;
+  margin-top: 8px;
+  box-shadow: 0 3px 10px rgba(0,123,255,0.3);
+}
+.btn-primary:active { transform: scale(0.97); }
+
+.btn-secondary {
+  background: rgba(255,255,255,0.8);
+  border: 1px solid #dcdcdc;
+  color: #333;
+  padding: 8px;
+  border-radius: 10px;
 }
 
-/* ======== Botones de herramientas ======== */
-.tool-btn {
-  padding: 8px 15px;
-  margin: 5px;
+.btn-tool {
+  background: rgba(255,255,255,0.85);
+  border: 1px solid #ccc;
+  padding: 4px 6px;
+  border-radius: 8px;
+  font-size: 0.80rem;
+  flex: 1;
+  min-width: 60px;
+  height: 32px;
+}
+.btn-tool:active { transform: scale(0.92); }
+
+.btn-danger {
+  background: #ff4f4f;
+  color: white;
+  margin-top: 6px;
+  border-radius: 10px;
+}
+
+.btn-download {
+  background: linear-gradient(135deg, #2ecc71, #1fa85d);
+  text-align: center;
+  color: white;
+  display: block;
+  margin-top: 12px;
+}
+
+.small-btn {
+  padding: 8px 10px;
+  font-size: 0.85rem;
+  width: auto;
+}
+
+/* ===== INPUTS ===== */
+input[type="file"], input[type="color"], input[type="range"], .input-file {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid #d3d3d3;
   font-size: 0.9rem;
-  background: linear-gradient(90deg, #6c757d, #495057);
+  background: rgba(255,255,255,0.85);
+  margin-top: 6px;
 }
 
-.tool-btn:hover {
-  background: linear-gradient(90deg, #495057, #6c757d);
+/* ===== CANVAS ===== */
+canvas {
+  width: 100%;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-.tool-btn.active {
-  background: linear-gradient(90deg, #ff6b6b, #ff8e8e);
-  box-shadow: 0 0 0 2px #ff6b6b;
+/* ===== TOOLS ===== */
+.tools {
+  padding: 8px 10px;
 }
-
-/* ======== Controles de goma ======== */
-.brush-controls {
-  margin: 15px 0;
+.tools h2 {
+  margin-bottom: 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.tools h3 {
+  margin-top: 12px;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.tool-row {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
+  justify-content: space-between;
+  gap: 4px;
+  margin-top: 6px;
+  flex-wrap: wrap;
 }
 
-.brush-controls label {
-  font-weight: 600;
-  color: #555;
+/* ===== RANGE ===== */
+input[type='range'] {
+  height: 4px;
+  margin-top: 2px;
 }
 
-.brush-controls input[type="range"] {
-  width: 120px;
-}
-
-#brushSizeValue {
-  font-weight: 600;
-  color: #4e8cff;
-  min-width: 40px;
-}
-
-/* ======== Enlace de descarga ======== */
-a#downloadLink {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 20px;
-  background: linear-gradient(90deg, #48c774, #36b37e);
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: 0.3s;
-  box-shadow: 0 3px 10px rgba(72, 199, 116, 0.25);
-}
-
-a#downloadLink:hover {
-  background: linear-gradient(90deg, #36b37e, #48c774);
-  transform: scale(1.05);
-}
-
-/* ======== Canvas ======== */
-canvas {
-  margin-top: 15px;
-  max-width: 100%;
-  border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  cursor: crosshair;
-}
-
-/* ======== Progreso ======== */
-.progress-container {
+/* ===== PROGRESS ===== */
+.progress-wrapper {
+  padding: 10px;
+  max-width: 480px;
   width: 100%;
-  background: rgba(200, 200, 200, 0.3);
-  border-radius: 10px;
-  height: 28px;
-  overflow: hidden;
-  margin: 15px 0;
-  position: relative;
 }
-
 .progress-bar {
+  width: 100%;
+  height: 18px;
+  background: rgba(255,255,255,0.35);
+  border-radius: 20px;
+  overflow: hidden;
+}
+#process-progress {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, #4e8cff, #00b4d8);
-  transition: width 0.3s ease;
-  box-shadow: 0 0 10px rgba(0, 136, 255, 0.4);
+  background: linear-gradient(90deg, #00a2ff, #0066ff);
+  transition: width .25s ease;
 }
 
-/* ======== Mensaje de estado ======== */
-#status {
-  margin-top: 10px;
-  font-weight: 600;
-  color: #0077b6;
+/* ===== ESTADO ===== */
+.status {
+  text-align: center;
   font-size: 0.95rem;
+  font-weight: 600;
+  color: #004c99;
 }
 
-/* ======== Clase hidden ======== */
-.hidden {
-  display: none;
-}
-
-/* ======== Animaciones ======== */
+/* ===== ANIMACIÓN GENERAL ===== */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+.hidden { display: none; }
 
-.container, canvas, button, input, a {
-  animation: fadeIn 0.6s ease forwards;
+/* =====================================================
+   PANEL DE FONDOS – DESPLEGABLE COMPACTO, SIN DESBORDE
+===================================================== */
+.fondo-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
 }
 
-/* ======== Adaptabilidad ======== */
-@media (max-width: 600px) {
-  h1 {
-    font-size: 1.5rem;
-  }
-  button {
-    width: 100%;
-  }
-  input[type="file"] {
-    width: 100%;
-  }
-  .tool-controls {
-    display: flex;
-    flex-direction: column;
-  }
-  .brush-controls {
-    flex-direction: column;
-    gap: 5px;
-  }
+/* Botón principal */
+#addBgBtn {
+  width: 100%;
+  font-size: 0.9rem;
+  padding: 8px 10px;
+  background: rgba(255,255,255,0.85);
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+#addBgBtn:hover {
+  background: rgba(255,255,255,0.95);
+}
+#addBgBtn:active {
+  transform: scale(0.97);
+}
+
+/* Panel debajo del botón */
+.bg-options {
+  position: relative;
+  margin-top: 8px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  opacity: 0;
+  transform: translateY(-6px) scale(0.98);
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Cuando se abre */
+.bg-options.slide-in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+
+/* Botones internos */
+.bg-options button {
+  width: 100%;
+  font-size: 0.85rem;
+  text-align: left;
+  border-radius: 8px;
+  padding: 6px 8px;
+  background: rgba(255,255,255,0.95);
+  border: 1px solid #ddd;
+  transition: all 0.2s ease;
+}
+.bg-options button:hover {
+  background: rgba(255,255,255,1);
+  transform: scale(1.02);
+}
+.bg-options button:active {
+  transform: scale(0.97);
+}
+
+/* Miniaturas dinámicas */
+#bgColorBtn {
+  transition: background 0.25s ease, color 0.25s ease;
+}
+#bgImageBtn {
+  background-size: cover;
+  background-position: center;
+  color: #222;
+  text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+}
+
+/* Sombras suaves tipo app */
+.bg-options::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+  pointer-events: none;
 }

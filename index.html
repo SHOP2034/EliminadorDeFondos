@@ -1,47 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eliminador de Fondos</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>🧼 Eliminador de Fondos</h1>
-    <p>Subí una imagen de un producto y quitá el fondo fácilmente.</p>
+  <header class="app-header">
+    <h1>🧼 Eliminador</h1>
+  </header>
 
-    <input type="file" id="fileInput" accept="image/*">
-    <button id="removeBgBtn" disabled>Quitar fondo</button>
+  <main class="app-container">
+    <!-- SUBIR IMAGEN -->
+    <section class="upload-section card compact-card">
+      <h2>Imagen</h2>
+      <input type="file" id="fileInput" accept="image/*" class="input-file" />
+      <button id="removeBgBtn" disabled class="btn-primary small-btn">Quitar fondo</button>
+    </section>
 
-    <div id="process-container" class="progress-container hidden">
-      <label>Procesando imagen...</label>
-      <div id="process-progress" class="progress-bar"></div>
-    </div>
+    <!-- PROCESO -->
+    <section id="process-container" class="progress-wrapper hidden compact-card">
+      <label>Procesando...</label>
+      <div class="progress-bar"><div id="process-progress"></div></div>
+    </section>
 
-    <canvas id="canvas" width="400" height="400"></canvas>
+    <!-- CANVAS -->
+    <section class="canvas-section card compact-card">
+      <canvas id="canvas" width="300" height="300"></canvas>
+      <a id="downloadLink" class="btn-download hidden small-btn" download="resultado.png">⬇ Descargar</a>
+    </section>
 
-    <div id="edit-tools" class="hidden">
-      <h3>Herramientas de edición</h3>
-      <div class="tool-controls">
-        <button id="undoBtn">↶</button>
-        <button id="redoBtn">➥</button>
-        <button id="eraserBtn" class="tool-btn">🧽 Goma</button>
-        <button id="restoreBtn" class="tool-btn">↩️ Restaurar</button>
-        <button id="clearBtn" class="tool-btn">🗑️ Limpiar</button>
+    <!-- HERRAMIENTAS -->
+    <section id="edit-tools" class="tools card compact-card hidden">
+      <h2>Editar</h2>
+
+      <div class="tool-row">
+        <button id="undoBtn" class="btn-tool">↶</button>
+        <button id="redoBtn" class="btn-tool">↷</button>
+        <button id="eraserBtn" class="btn-tool">Goma</button>
       </div>
-      <div class="brush-controls">
-        <label for="brushSize">Tamaño de goma:</label>
-        <input type="range" id="brushSize" min="5" max="100" value="20">
+
+      <div class="tool-row">
+        <button id="restoreBtn" class="btn-tool">Restaurar</button>
+        <button id="clearBtn" class="btn-danger">Limpiar</button>
+      </div>
+
+      <div class="tool-row">
+        <label>Tamaño</label>
+        <input type="range" id="brushSize" min="5" max="100" value="20" />
         <span id="brushSizeValue">20px</span>
       </div>
-    </div>
 
-    <p id="status">🖼️ Esperando imagen...</p>
+      <!-- NUEVA SECCIÓN DE FONDOS -->
+      <h3>Fondo</h3>
+      <div class="tool-row fondo-wrapper">
+        <button id="addBgBtn" class="btn-secondary small-btn">Agregar fondo ▸</button>
 
-    <a id="downloadLink" class="hidden" download="sin_fondo.png">⬇️ Descargar resultado</a>
-  </div>
+        <div id="bgOptions" class="bg-options hidden">
+          <button id="bgColorBtn" class="btn-secondary small-btn">🎨 Agregar color</button>
+          <input type="color" id="bgColorPicker" class="hidden" value="#ffffff" />
+
+          <button id="bgImageBtn" class="btn-secondary small-btn">🖼️ Agregar imagen</button>
+          <input type="file" id="bgImageInput" class="hidden" accept="image/*" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ESTADO -->
+    <p id="status" class="status">🖼️ Esperando…</p>
+  </main>
 
   <script src="script.js"></script>
 </body>
